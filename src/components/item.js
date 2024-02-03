@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { memo, useState } from 'react';
 import { remove, update } from '../lib/reducer';
+import { useActions } from '../hooks';
 
-const Item = ({ item, dispatch }) => {
+const Item = ({ item }) => {
   const [editing, setEditing] = useState(false);
+  const dispatch = useActions();
 
   return (
     <li className="flex items-center gap-2">

@@ -1,14 +1,17 @@
 import { memo, useState } from 'react';
+import { add } from '../lib/reducer';
+import { useActions } from '../hooks';
 
-const NewItem = ({ addItem }) => {
+const NewItem = () => {
   const [newItemName, setNewItemName] = useState('');
+  const dispatch = useActions();
 
   return (
     <form
       id="new-item"
       onSubmit={(e) => {
         e.preventDefault();
-        addItem(newItemName);
+        dispatch(add(newItemName));
         setNewItemName('');
       }}
     >
